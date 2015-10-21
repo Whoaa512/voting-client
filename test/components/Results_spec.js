@@ -1,4 +1,4 @@
-require('../test_helper.js')
+require('../_test_helper.js')
 import test from 'ava'
 import React from 'react'
 import ReactDOM from 'react-dom'

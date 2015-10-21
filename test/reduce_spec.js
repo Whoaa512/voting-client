@@ -1,4 +1,4 @@
-require('./test_helper.js')
+require('./_test_helper.js')
 import test from 'ava'
 import {expect} from 'chai'
 import {List, Map, fromJS} from 'immutable'
