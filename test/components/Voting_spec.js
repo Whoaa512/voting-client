@@ -33,3 +33,43 @@ test('invokes callback when button is clicked', t => {
 
   t.ok(votedWith === 'Bacon')
 })
+
+test('disables buttons when user has voted', t => {
+  t.plan(3)
+
+  const component = renderIntoDocument(
+    <Voting
+        pair={['Bacon', 'Bits']}
+        hasVoted='Bacon' />
+  )
+  const buttons = scryRenderedDOMComponentsWithTag(component, 'button')
+  t.ok(buttons.length === 2)
+  t.ok(buttons[0].hasAttribute('disabled'))
+  t.ok(buttons[1].hasAttribute('disabled'))
+})
+
+test('adds label to voted entry', t => {
+  t.plan(1)
+
+  const component = renderIntoDocument(
+    <Voting
+        pair={['Bacon', 'Bits']}
+        hasVoted='Bacon' />
+  )
+  const buttons = scryRenderedDOMComponentsWithTag(component, 'button')
+  t.regexTest(/Voted/, buttons[0].textContent)
+})
+
+test('renders just the winner when there is one', t => {
+  t.plan(3)
+
+  const component = renderIntoDocument(
+    <Voting
+        winner='Bacon' />
+  )
+  const buttons = scryRenderedDOMComponentsWithTag(component, 'button')
+  t.ok(buttons.length === 0)
+  const winner = React.findDOMNode(component.refs.winner)
+  t.ok(winner)
+  t.regexTest(/Bacon/, winner.textContent)
+})
