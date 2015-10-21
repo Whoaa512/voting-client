@@ -10,10 +10,12 @@
   "author": "C.J. Winslow <whoaa512@gmail.com> (http://github.com/whoaa512)",
   "license": "ISC",
   "dependencies": {
+    "history": "^1.12.5",
     "immutable": "^3.7.5",
     "react": "^0.14.0",
     "react-addons-pure-render-mixin": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react-dom": "^0.14.0",
+    "react-router": "rackt/react-router"
   },
   "devDependencies": {
     "ava": "whoaa512/ava",
