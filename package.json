@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "ava test/**/*.js",
+    "test": "ava test/**/*.js test/*.js",
     "test:watch": "nodemon test/*.js test/**/*.js --exec ava"
   },
   "author": "C.J. Winslow <whoaa512@gmail.com> (http://github.com/whoaa512)",

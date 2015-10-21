@@ -22,6 +22,7 @@ test('handles SET_STATE', t => {
       tally: { Bacon: 1 }
     }
   }))
+  t.end()
 })
 
 test('handles SET_STATE with plain JS payload', t => {
@@ -42,6 +43,7 @@ test('handles SET_STATE with plain JS payload', t => {
       tally: { Bacon: 1 }
     }
   }))
+  t.end()
 })
 
 test('handles SET_STATE without initial state', t => {
@@ -61,5 +63,6 @@ test('handles SET_STATE without initial state', t => {
       tally: { Bacon: 1 }
     }
   }))
+  t.end()
 })
 
