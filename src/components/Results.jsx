@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import PureRenderComponent from './PureRenderComponent'
 import Winner from './Winner'
 
@@ -40,3 +41,13 @@ export default class Results extends PureRenderComponent {
     )
   }
 }
+
+function mapStateToProps (state) {
+  return {
+    pair: state.getIn(['vote', 'pair']),
+    tally: state.getIn(['vote', 'tally']),
+    winner: state.get('winner')
+  }
+}
+
+export const ResultsContainer = connect(mapStateToProps)(Results)
