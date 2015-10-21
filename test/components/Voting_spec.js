@@ -1,6 +1,7 @@
 require('../test_helper.js')
 import test from 'ava'
 import React from 'react'
+import ReactDOM from 'react-dom'
 import ReactTestUtils from 'react-addons-test-utils'
 import Voting from '../../src/components/Voting'
 
@@ -69,7 +70,7 @@ test('renders just the winner when there is one', t => {
   )
   const buttons = scryRenderedDOMComponentsWithTag(component, 'button')
   t.ok(buttons.length === 0)
-  const winner = React.findDOMNode(component.refs.winner)
+  const winner = ReactDOM.findDOMNode(component.refs.winner)
   t.ok(winner)
   t.regexTest(/Bacon/, winner.textContent)
 })
