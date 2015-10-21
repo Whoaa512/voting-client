@@ -1,11 +1,7 @@
 import React from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+import PureRenderComponent from './PureRenderComponent'
 
-export default class Winner extends React.Component {
-  get mixins () {
-    return [PureRenderMixin]
-  }
-
+export default class Winner extends PureRenderComponent {
   render () {
     return (
       <div className='winner'>
