@@ -66,3 +66,64 @@ test('handles SET_STATE without initial state', t => {
   t.end()
 })
 
+test('handles VOTE by setting hasVoted', t => {
+  const state = fromJS({
+    vote: {
+      pair: ['Bacon', 'Bits'],
+      tally: { Bacon: 1 }
+    }
+  })
+  const action = { type: 'VOTE', entry: 'Bacon' }
+  const nextState = reducer(state, action)
+  expect(nextState).to.equal(fromJS({
+    vote: {
+      pair: ['Bacon', 'Bits'],
+      tally: { Bacon: 1 }
+    },
+    hasVoted: 'Bacon'
+  }))
+  t.end()
+})
+
+test('does not set hasVoted for VOTE on invalid entry', t => {
+  const state = fromJS({
+    vote: {
+      pair: ['Bacon', 'Bits'],
+      tally: { Bacon: 1 }
+    }
+  })
+  const action = { type: 'VOTE', entry: 'Awesome' }
+  const nextState = reducer(state, action)
+  expect(nextState).to.equal(fromJS({
+    vote: {
+      pair: ['Bacon', 'Bits'],
+      tally: { Bacon: 1 }
+    }
+  }))
+  t.end()
+})
+
+test('removes hasVoted on SET_STATE if pair changes', t => {
+  const state = fromJS({
+    vote: {
+      pair: ['Bacon', 'Bits'],
+      tally: { Bacon: 1 }
+    },
+    hasVoted: 'Bacon'
+  })
+  const action = {
+    type: 'SET_STATE',
+    state: {
+      vote: {
+        pair: ['Nope', 'Cats']
+      }
+    }
+  }
+  const nextState = reducer(state, action)
+  expect(nextState).to.equal(fromJS({
+    vote: {
+      pair: ['Nope', 'Cats']
+    }
+  }))
+  t.end()
+})
