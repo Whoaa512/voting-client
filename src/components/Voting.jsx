@@ -1,9 +1,12 @@
 import React from 'react'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 import Vote from './Vote'
 import Winner from './Winner'
 
 export default class Voting extends React.Component {
-
+  get mixins () {
+    return [PureRenderMixin]
+  }
 
   render () {
     return (
