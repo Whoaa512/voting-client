@@ -15,7 +15,9 @@
     "react": "^0.14.0",
     "react-addons-shallow-compare": "^0.14.0",
     "react-dom": "^0.14.0",
-    "react-router": "rackt/react-router"
+    "react-redux": "^4.0.0",
+    "react-router": "rackt/react-router",
+    "redux": "^3.0.3"
   },
   "devDependencies": {
     "ava": "whoaa512/ava",
