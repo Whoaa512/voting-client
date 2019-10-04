@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "ava test/**/*.js test/*.js",
-    "test:watch": "nodemon test/*.js test/**/*.js --exec ava"
+    "test:watch": "nodemon test/*.js test/**/*.js --exec ava",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "C.J. Winslow <whoaa512@gmail.com> (http://github.com/whoaa512)",
   "license": "ISC",
@@ -18,7 +20,8 @@
     "react-redux": "^4.0.0",
     "react-router": "rackt/react-router",
     "redux": "^3.0.3",
-    "socket.io-client": "^1.3.7"
+    "socket.io-client": "^1.3.7",
+    "snyk": "^1.230.5"
   },
   "devDependencies": {
     "ava": "whoaa512/ava",
@@ -32,5 +35,6 @@
     "react-hot-loader": "^1.3.0",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.1"
-  }
+  },
+  "snyk": true
 }
