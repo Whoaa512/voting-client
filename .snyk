@@ -6,3 +6,7 @@ patch:
   SNYK-JS-HTTPSPROXYAGENT-469131:
     - react-router > lerna-changelog > make-fetch-happen > https-proxy-agent:
         patched: '2019-10-08T00:52:22.862Z'
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-10T00:46:05.598Z'
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-10T00:46:05.598Z'
